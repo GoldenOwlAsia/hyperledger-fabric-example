@@ -67,7 +67,7 @@ docker-compose -f docker-compose-cli.yaml up -d && docker ps
 
 You would see following result:
 
-@import "assets/docker.png"
+![https://github.com/GoldenOwlAsia/go-hyperledger-fabric-tut/blob/master/assets/docker.png?raw=true](https://github.com/GoldenOwlAsia/go-hyperledger-fabric-tut/blob/master/assets/docker.png?raw=true)
 
 ## 3. Initialize networks using CLI
 
