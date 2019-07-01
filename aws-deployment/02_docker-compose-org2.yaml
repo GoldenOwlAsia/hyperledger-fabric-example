@@ -1,0 +1,39 @@
+# Copyright IBM Corp. All Rights Reserved.
+#
+# SPDX-License-Identifier: Apache-2.0
+#
+
+version: '2'
+
+volumes:
+  peer0.org2.example.com:
+  peer1.org2.example.com:
+
+networks:
+  fabric:
+
+services:
+
+  peer0.org2.example.com:
+    container_name: peer0.org2.example.com
+    extends:
+      file:  base/docker-compose-base.yaml
+      service: peer0.org2.example.com
+    extra_hosts:
+      - "orderer.example.com:$ORDERER_HOST"
+      - "peer0.org1.example.com:$PEER0_ORG1_HOST"
+      - "peer0.org3.example.com:$PEER0_ORG3_HOST"
+      - "peer1.org1.example.com:$PEER1_ORG1_HOST"
+      - "peer1.org3.example.com:$PEER1_ORG3_HOST"
+
+  peer1.org2.example.com:
+    container_name: peer1.org2.example.com
+    extends:
+      file:  base/docker-compose-base.yaml
+      service: peer1.org2.example.com
+    extra_hosts:
+      - "orderer.example.com:$ORDERER_HOST"
+      - "peer0.org1.example.com:$PEER0_ORG1_HOST"
+      - "peer0.org3.example.com:$PEER0_ORG3_HOST"
+      - "peer1.org1.example.com:$PEER1_ORG1_HOST"
+      - "peer1.org3.example.com:$PEER1_ORG3_HOST"
