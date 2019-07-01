@@ -3,11 +3,11 @@
 This tutorial will setup a Hyperledger Fabric (HF) network with following chracteristics:
  - Solo Orderer service
  - Consortium consists of 3 organizations, each organization has:
-- 2 peers: peer0 is anchor peer
-- 1 org admin
+    - 2 peers: peer0 is anchor peer
+    - 1 org admin
  - Two channels as follow:
-- Channel12: consist of Org1 & Org2
-- Channel123: consist of all 3 organizations
+    - Channel12: consist of Org1 & Org2
+    - Channel123: consist of all 3 organizations
 
 This tutorial is based on BYFN tutorial from official Hyperledger Fabric (HF) version 1.4 ["Build Your First Network"](http://hyperledger-fabric.readthedocs.io/en/latest/build_network.html) tutorial.
 
@@ -352,7 +352,9 @@ peer chaincode query -C channel123 -n mycc123 -c '{"Args":["query","a"]}'
 ```
 the result is obviously changed
 
+## 5. AWS setup
 
+Refer to `aws-deployment` folder. The difference is that we will not use docker bridge network mode and need to support Elastic IPs into docker containers.
 
 # To reset everything
 

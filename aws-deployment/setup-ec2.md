@@ -1,3 +1,7 @@
+# AWS network setup
+
+## EC2 instance setup (t2.micro)
+```bash
 sudo yum update -y
 sudo yum install -y docker
 sudo service docker start
@@ -14,14 +18,17 @@ sudo chmod +x /usr/local/bin/docker-compose
 ln -s /usr/local/bin/docker-compose /usr/bin/docker-compose
 sudo ln -s /usr/local/bin/docker-compose /usr/bin/docker-compose
 docker-compose --version
+```
 
-
-# getting materils
+## Donwload artifacts
+```bash
 rm -r *
 curl https://goblockchain.s3.amazonaws.com/2channels3members.zip --output content.zip
 unzip content.zip
+```
 
 # running docker
+```bash
 export IMAGE_TAG=1.4
 export ORDERER_HOST=54.163.133.203
 export PEER0_ORG1_HOST=100.26.150.23
@@ -72,11 +79,13 @@ export PEER1_ORG2_HOST=18.207.180.39
 export PEER0_ORG3_HOST=3.208.88.110
 export PEER1_ORG3_HOST=3.208.88.110
 docker-compose -f deployment/04_docker-compose-cli.yaml up -d && docker ps
-
+```
 
 -----
 # to clean up docker
+```bash
 docker-compose -f docker-compose-cli.yaml down
 docker rm -f $(docker ps -aq)
 docker rmi -f $(docker images | grep fabcar | awk '{print $3}')
 docker volume prune
+```
